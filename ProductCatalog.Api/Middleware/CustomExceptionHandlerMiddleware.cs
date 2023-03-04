@@ -1,4 +1,5 @@
 
+using ProductCatalog.Infrastructure.Exceptions;
 using ProductCatalog.Infrastructure.Extensions;
 using ProductCatalog.Models;
 using ProductCatalog.Models.Enums;
@@ -38,6 +39,15 @@ public class CustomExceptionHandlerMiddleware
         var aggregatedExceptionMessage = exception.GetAggregatedExceptionMessage();
         switch (exception)
         {
+            case NotFoundException notFoundException:
+                _logger.LogError(exception, aggregatedExceptionMessage);
+                errorResponse = new ErrorResponse(
+                  notFoundException.Message,
+                  ErrorPriority.HIGH,
+                  ErrorCode.NotFound);
+                context.Response.StatusCode = (int)HttpStatusCode.NotFound;
+                break;
+
             case InvalidOperationException invalidOperationException:
                 _logger.LogError(exception, aggregatedExceptionMessage);
                 errorResponse =

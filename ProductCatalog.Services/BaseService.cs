@@ -5,13 +5,11 @@ namespace ProductCatalog.Services;
 
 public abstract class BaseService<T>
 {
-    protected readonly ILogger<T> Logger;
-    protected readonly IHttpClientFactory HttpClientFactory;
-
-    protected BaseService(IHttpClientFactory httpClientFactory,ILogger<T> logger)
+    protected BaseService(ILogger<T> logger)
     {
         Logger = logger;
-        HttpClientFactory = httpClientFactory;
     }
+
+    protected ILogger<T> Logger { get; }
 
 }

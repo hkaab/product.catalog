@@ -44,12 +44,15 @@ public class Startup
         var retryPolicy = HttpPolicyExtensions.HandleTransientHttpError()
                                    .WaitAndRetryAsync(_appConfig.PollyConfig.NoOfRetries, retryAttempt => TimeSpan.FromSeconds(retryAttempt));
 
-        services.AddHttpClient(Constants.WooliesXHttpClientName, client =>
+        services.AddHttpClient(_appConfig.ExternalApiConfig.Name, client =>
         {
             client.BaseAddress = new Uri(_appConfig.ExternalApiConfig.BaseUrl);
+            client.DefaultRequestHeaders.Add("Accept", "application/json");
         }).AddPolicyHandler(retryPolicy);
 
+        services.AddScoped<IExternalApiService, ExternalApiService>();
         services.AddScoped<IProductService, ProductService>();
+        services.AddScoped<IShopperHistoryService, ShopperHistoryService>();
         services.AddScoped<IUserService, UserService>();
         services.AddSingleton(_appConfig);
 

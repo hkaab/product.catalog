@@ -5,7 +5,7 @@ namespace ProductCatalog.Services;
 
 public class UserService : BaseService<UserService>,IUserService
 {
-    public UserService (IHttpClientFactory httpClientFactory, ILogger<UserService> logger) : base(httpClientFactory, logger)
+    public UserService (ILogger<UserService> logger) : base(logger)
     { 
     }
 }
