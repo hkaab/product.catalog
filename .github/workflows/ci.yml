@@ -14,7 +14,7 @@ jobs:
     steps:
     - name: Use variables
       run: |
-        echo "Token : ${{ vars.Token }}"
+        echo "Token : ${{ vars.Test }}"
     - uses: actions/checkout@v3
     - name: Setup .NET
       uses: actions/setup-dotnet@v2
