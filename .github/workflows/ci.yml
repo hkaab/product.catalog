@@ -21,8 +21,10 @@ jobs:
       run: dotnet restore
     - name: App Settings Variable Substitution
       uses: microsoft/variable-substitution@v1
+      with:
+        files: '${{env.DOTNET_ROOT}}/ProductCatalog.Api/appsettings.json'
       env:
-           EXTERNALAPICONFIG__TOKEN: ${{ secrets.EXTERNALAPICONFIG__TOKEN }}
+        EXTERNALAPICONFIG__TOKEN: ${{ secrets.EXTERNALAPICONFIG__TOKEN }}
     - name: Build
       run: dotnet build --no-restore
     - name: Test
