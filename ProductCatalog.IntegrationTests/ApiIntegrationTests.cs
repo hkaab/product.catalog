@@ -34,12 +34,13 @@ namespace IntegrationTests
         }
 
         [Fact]
-        public async Task WhenQueryProductAsyncRequest_WithArtistName_Status200IsReturnedWithProductCollection()
+        public async Task WhenQueryProductAsyncRequest_Status200IsReturnedWithProductCollection()
         {
             var response = await appFactoryFixture.Client.GetAsync($"{appFactoryFixture.AppConfig.ExternalApiConfig.ProductsUri}");
             response.EnsureSuccessStatusCode();
             var json = await response.Content.ReadAsStringAsync();
             var result = Serialization.FromJson<IEnumerable<Product>>(json);
+            Assert.IsType<List<Product>>(result);
             Assert.True(result.Count() > 1);
         }
 
@@ -50,12 +51,12 @@ namespace IntegrationTests
             response.EnsureSuccessStatusCode();
             var json = await response.Content.ReadAsStringAsync();
             var result = Serialization.FromJson<IEnumerable<ShopperHistory>>(json);
-
+            Assert.IsType<List<ShopperHistory>>(result);
             Assert.True(result.Count() > 1);
         }
 
         [Fact]
-        public async Task WhenGetArtistByIdAsyncRequest_WithNotExistedName_Status404NotFoundResult()
+        public async Task WhenGetInvalidUri_Status404NotFoundResult()
         {
             var response = await appFactoryFixture.Client.GetAsync("dummy");
             Assert.Equal(System.Net.HttpStatusCode.NotFound, response.StatusCode);

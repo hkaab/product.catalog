@@ -15,7 +15,7 @@ namespace UnitTests.Services
         }
 
         [Fact]
-        public async void GetArtistByIdAsync_WhenCalledWithValidParam_ReturnsArtist()
+        public async void GetProductsAsync_WhenCalledWithValidParam_ReturnsProductCollection()
         {
             var externalApiService = new ExternalServiceBuilder().ForGetProducts().Build();
             var _mockShopperHistoryService = new Mock<IShopperHistoryService>();
