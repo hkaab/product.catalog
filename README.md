@@ -1,4 +1,4 @@
-# ToyRobot  (requires .NET 6.0)
+# Product Catalog  (requires .NET 6.0)
 
 ![workflow](https://github.com/hkaabasl/ToyRobot/actions/workflows/ci.yml/badge.svg)
 
@@ -17,7 +17,7 @@ Open the solution (in ProductCatalog folder) in visual studio and build the solu
 
 
 
-**Running the Robot Simulator unit tests with .net cli**
+**Running the Product Catalog unit & Integration tests with .net cli**
 
 Run command prompt (CMD)
 
