@@ -19,9 +19,13 @@ jobs:
         dotnet-version: 6.0.x
     - name: Restore dependencies
       run: dotnet restore
-    - name: Build
+    - name: App Settings Variable Substitution
+      uses: microsoft/variable-substitution@v1
+      with:
+        files: '**/appsettings.json'
       env:
-          EXTERNALAPICONFIG__TOKEN: ${{ secrets.EXTERNALAPICONFIG__TOKEN }}
+        ExternalApiConfig.Token: ${{ secrets.EXTERNALAPICONFIG__TOKEN }}
+    - name: Build
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --no-restore
