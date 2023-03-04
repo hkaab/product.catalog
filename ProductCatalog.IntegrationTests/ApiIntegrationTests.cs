@@ -34,20 +34,19 @@ namespace IntegrationTests
         }
 
         [Fact]
-        public async Task WhenQueryArtistAsyncRequest_WithArtistName_Status200IsReturnedWithArtistCollection()
+        public async Task WhenQueryProductAsyncRequest_WithArtistName_Status200IsReturnedWithArtistCollection()
         {
-            var response = await appFactoryFixture.Client.GetAsync("products?sortAttribute=Name&sortOptions=Recommended");
+            var response = await appFactoryFixture.Client.GetAsync($"{appFactoryFixture.AppConfig.ExternalApiConfig.ProductsUri}");
             response.EnsureSuccessStatusCode();
             var json = await response.Content.ReadAsStringAsync();
             var result = Serialization.FromJson<IEnumerable<Product>>(json);
-
             Assert.True(result.Count() > 1);
         }
 
         [Fact]
         public async Task WhenQueryShopperHistoryAsyncRequest_Status200IsReturnedWithShopperHistoryCollection()
         {
-            var response = await appFactoryFixture.Client.GetAsync("shopperHistory");
+            var response = await appFactoryFixture.Client.GetAsync($"{appFactoryFixture.AppConfig.ExternalApiConfig.ShopperHistoryUri}");
             response.EnsureSuccessStatusCode();
             var json = await response.Content.ReadAsStringAsync();
             var result = Serialization.FromJson<IEnumerable<ShopperHistory>>(json);
