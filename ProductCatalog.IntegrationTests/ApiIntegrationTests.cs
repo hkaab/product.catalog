@@ -30,7 +30,7 @@ namespace IntegrationTests
             Assert.Single(options.Value.GeneralRules);
             Assert.Equal("*", generalRule.Endpoint);
             Assert.Equal("1s", generalRule.Period);
-            Assert.Equal(5, generalRule.Limit);
+            Assert.Equal(1, generalRule.Limit);
         }
 
         [Fact]
