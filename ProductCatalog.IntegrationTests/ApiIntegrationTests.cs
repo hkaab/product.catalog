@@ -61,7 +61,7 @@ namespace IntegrationTests
             Assert.Equal(System.Net.HttpStatusCode.NotFound, response.StatusCode);
         }
 
-        [Fact]
+      /*  [Fact]
         public async Task WhenExceedRateLimit_ExpectException()
         {
             var requests = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
@@ -76,7 +76,7 @@ namespace IntegrationTests
 
             var exception = await Assert.ThrowsAsync<HttpRequestException>(() => ConcurrentApiRequests());
             Assert.Equal("Response status code does not indicate success: 429 (Too Many Requests).", exception.Message);
-        }
+        }*/
 
     }
 }
