@@ -24,7 +24,7 @@ jobs:
       with:
         files: '**/appsettings.json'
       env:
-        TOKEN: ${{ secrets.EXTERNALAPICONFIG__TOKEN }}
+        ExternalApiConfig.Token: ${{ secrets.EXTERNALAPICONFIG__TOKEN }}
     - name: Build
       run: dotnet build --no-restore
     - name: Test
