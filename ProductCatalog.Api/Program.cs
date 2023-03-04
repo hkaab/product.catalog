@@ -1,8 +1,11 @@
+using AspNetCoreRateLimit;
 using Microsoft.AspNetCore.Builder;
 using ProductCatalog.Api;
 using ProductCatalog.Api.Middleware;
 using ProductCatalog.Infrastructure.Configuration;
 using Serilog;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Host.UseSerilog();
@@ -41,6 +44,8 @@ else
 
 app.UseHttpsRedirection();
 
+app.UseIpRateLimiting();
+
 app.UseRouting();
 
 app.UseAuthentication();
@@ -52,3 +57,5 @@ app.UseMiddleware<LogRequestScope>();
 app.UseMiddleware<CustomExceptionHandlerMiddleware>();
 app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
 app.Run();
+
+public partial class Program { }

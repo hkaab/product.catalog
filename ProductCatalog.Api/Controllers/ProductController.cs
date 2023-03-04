@@ -36,7 +36,7 @@ namespace ProductCatalog.Api.Controllers
         [SwaggerResponse(StatusCodes.Status404NotFound, type: typeof(ErrorResponse), description: "Product not found")]
         [SwaggerResponse(StatusCodes.Status500InternalServerError, type: typeof(ErrorResponse), description: "Get Product failed")]
         [SwaggerResponse(StatusCodes.Status429TooManyRequests, type: typeof(ErrorResponse))]
-        public async Task<ActionResult<IEnumerable<Product>>> GetProductsAsync(CancellationToken cancellationToken,[FromQuery] string sortAttribute = "Name", [FromQuery] SortOptions sortOptions = SortOptions.Ascending)
+        public async Task<ActionResult<IEnumerable<Product>>> GetProductsAsync(CancellationToken cancellationToken,[FromQuery] string? sortAttribute = "Name", [FromQuery] SortOptions? sortOptions = SortOptions.Ascending)
         {
             var result = await _productService.GetProductsAsync(sortAttribute,sortOptions,cancellationToken);
             return Ok(result);

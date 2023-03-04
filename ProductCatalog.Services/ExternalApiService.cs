@@ -6,12 +6,12 @@ using System.Net;
 
 namespace ProductCatalog.Services
 {
-    public class ExternalApiService : BaseService<ProductService>, IExternalApiService
+    public class ExternalApiService : BaseService<ExternalApiService>, IExternalApiService
     {
         private readonly HttpClient _httpClient;
         protected readonly AppConfig _config;
 
-        public ExternalApiService(IHttpClientFactory httpClientFactory, AppConfig config, ILogger<ProductService> logger) : base(logger)
+        public ExternalApiService(IHttpClientFactory httpClientFactory, AppConfig config, ILogger<ExternalApiService> logger) : base(logger)
         {
             _httpClient = httpClientFactory.CreateClient(config.ExternalApiConfig.Name);
             _config = config;

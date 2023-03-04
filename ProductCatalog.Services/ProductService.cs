@@ -4,8 +4,6 @@ using ProductCatalog.Interfaces;
 using ProductCatalog.Library.Extensions;
 using ProductCatalog.Models;
 using ProductCatalog.Models.Enums;
-using System.Security.Cryptography;
-using System.Text.Json;
 
 namespace ProductCatalog.Services
 {
@@ -23,7 +21,7 @@ namespace ProductCatalog.Services
             _shopperHistoryService = shopperHistoryService;
         }
 
-        public async Task<IEnumerable<Product>> GetProductsAsync(string attribute,SortOptions sortOptions,CancellationToken cancellationToken)
+        public async Task<IEnumerable<Product>> GetProductsAsync(string attribute,SortOptions? sortOptions,CancellationToken cancellationToken)
         {
             var  products = await this.GetProductsAsync(cancellationToken);
 
@@ -51,7 +49,7 @@ namespace ProductCatalog.Services
 
             var notOrdered = products.Where(p => orderedProducts.All(m => m.Name != p.Name)).ToList();
 
-            return orderedProducts.Union(notOrdered);
+            return orderedProducts.Union(notOrdered).ToList();
         }
 
     }

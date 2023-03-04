@@ -15,7 +15,7 @@ public static class Collections
 
         return propertyInfo != null ? items.OrderBy(e => propertyInfo.GetValue(e, null)) : items;
     }
-    public static IEnumerable<T> OrderBy<T>(this IEnumerable<T> items, string property, SortOptions sortOptions)
+    public static IEnumerable<T> OrderBy<T>(this IEnumerable<T> items, string property, SortOptions? sortOptions)
     {
         if (!items.Any() || string.IsNullOrEmpty(property))
             return items;

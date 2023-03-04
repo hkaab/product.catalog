@@ -5,6 +5,6 @@ namespace ProductCatalog.Interfaces
 {
     public interface IProductService
     {
-        public Task<IEnumerable<Product>> GetProductsAsync(string attribute, SortOptions sortOptions, CancellationToken cancellationToken);
+        public Task<IEnumerable<Product>> GetProductsAsync(string attribute, SortOptions? sortOptions, CancellationToken cancellationToken);
     }
 }
