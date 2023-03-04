@@ -10,7 +10,7 @@ namespace IntegrationTests
     public class ApiIntegrationTests : IClassFixture<AppFactoryFixture>
     {
         private readonly AppFactoryFixture appFactoryFixture;
-        public ApiIntegrationTests( AppFactoryFixture fixture)
+        public ApiIntegrationTests(AppFactoryFixture fixture)
         {
             appFactoryFixture = fixture;
         }
@@ -30,7 +30,7 @@ namespace IntegrationTests
             Assert.Single(options.Value.GeneralRules);
             Assert.Equal("*", generalRule.Endpoint);
             Assert.Equal("1s", generalRule.Period);
-            Assert.Equal(1, generalRule.Limit);
+            Assert.Equal(5, generalRule.Limit);
         }
 
         [Fact]
@@ -64,7 +64,7 @@ namespace IntegrationTests
         [Fact]
         public async Task WhenExceedRateLimit_ExpectException()
         {
-            var requests = new List<string> { "1", "2", "3", "4", "5" };
+            var requests = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
             var allTasks = requests.Select(n => Task.Run(async () =>
             {
