@@ -20,6 +20,8 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
+      env:
+          EXTERNALAPICONFIG__TOKEN: ${{ secrets.EXTERNALAPICONFIG__TOKEN }}
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --no-restore
