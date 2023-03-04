@@ -34,7 +34,7 @@ namespace IntegrationTests
         }
 
         [Fact]
-        public async Task WhenQueryProductAsyncRequest_WithArtistName_Status200IsReturnedWithArtistCollection()
+        public async Task WhenQueryProductAsyncRequest_WithArtistName_Status200IsReturnedWithProductCollection()
         {
             var response = await appFactoryFixture.Client.GetAsync($"{appFactoryFixture.AppConfig.ExternalApiConfig.ProductsUri}");
             response.EnsureSuccessStatusCode();
