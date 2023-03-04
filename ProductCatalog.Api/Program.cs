@@ -22,13 +22,7 @@ if (builder.Environment.IsDevelopment())
         DotEnv.Load(dotenv);
     }
 
-    builder.Host.ConfigureAppConfiguration((ctx, builder) =>
-    {
-        builder.AddEnvironmentVariables();
-    });
-
-    var startup = new Startup(builder.Configuration);
-    startup.ConfigureServices(builder.Services);
+    ConfigureServices(builder);
 
     app = builder.Build();
     app.UseDeveloperExceptionPage();
@@ -37,8 +31,7 @@ if (builder.Environment.IsDevelopment())
 }
 else
 {
-    var startup = new Startup(builder.Configuration);
-    startup.ConfigureServices(builder.Services);
+    ConfigureServices(builder);
     app = builder.Build();
 }
 
@@ -57,5 +50,15 @@ app.UseMiddleware<LogRequestScope>();
 app.UseMiddleware<CustomExceptionHandlerMiddleware>();
 app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
 app.Run();
+
+static void ConfigureServices(WebApplicationBuilder builder)
+{
+    builder.Host.ConfigureAppConfiguration((ctx, builder) =>
+    {
+        builder.AddEnvironmentVariables();
+    });
+    var startup = new Startup(builder.Configuration);
+    startup.ConfigureServices(builder.Services);
+}
 
 public partial class Program { }
