@@ -22,7 +22,7 @@ namespace ProductCatalog.Services
             var response = await _httpClient.GetAsync(AddTokenToUri(uri), cancellationToken);
             if (response.StatusCode.Equals(HttpStatusCode.NotFound))
             {
-                throw new NotFoundException("Not found");
+                throw new NotFoundException("Products Not found");
             }
 
             response.EnsureSuccessStatusCode();

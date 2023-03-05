@@ -56,7 +56,7 @@ namespace IntegrationTests
         }
 
         [Fact]
-        public async Task WhenGetInvalidUri_Status404NotFoundResult()
+        public async Task WhenCallingInvalidUri_Status404NotFoundResult()
         {
             var response = await appFactoryFixture.Client.GetAsync("dummy");
             Assert.Equal(System.Net.HttpStatusCode.NotFound, response.StatusCode);

@@ -47,8 +47,9 @@ app.UseAuthorization();
 
 app.UseMiddleware<HealthCheckMiddleware>();
 app.UseMiddleware<LogRequestScope>();
-app.UseMiddleware<CustomExceptionHandlerMiddleware>();
 app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+
+app.UseMiddleware<CustomExceptionHandlerMiddleware>();
 app.Run();
 
 static void ConfigureServices(WebApplicationBuilder builder)

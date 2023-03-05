@@ -57,9 +57,12 @@ namespace UnitTests.Builders
             };
             var mockHttpClientFactory = new Mock<IHttpClientFactory>();
             mockHttpClientFactory.Setup(_ => _.CreateClient("WooliesX")).Returns(httpClient);
+
             AppConfig appConfig = new AppConfig();
             appConfig.ExternalApiConfig = new ExternalApiConfig { Name = "WooliesX" };
+
             Mock<ILogger<ExternalApiService>> logger = new Mock<ILogger<ExternalApiService>>();
+            
             externalApiService = new ExternalApiService(mockHttpClientFactory.Object,appConfig,logger.Object);
 
             return externalApiService;

@@ -23,11 +23,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ProductCatalog.Api\ProductCatalog.Api.csproj" />
     <ProjectReference Include="..\ProductCatalog.Services\ProductCatalog.Services.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\" />
   </ItemGroup>
 
 </Project>
