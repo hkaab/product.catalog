@@ -1,6 +1,6 @@
 # Product Catalog  (requires .NET 6.0)
 
-![workflow](https://github.com/hkaabasl/ProductCatalog/actions/workflows/ci.yml/badge.svg)
+![workflow](https://github.com/hkaab/ProductCatalog/actions/workflows/ci.yml/badge.svg)
 
 
 
