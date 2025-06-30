@@ -11,7 +11,7 @@ Download and Install visuall studio 2022  from https://visualstudio.microsoft.co
 
 **Clone this repository**
 
-git clone https://github.com/hkaabasl/ProductCatalog.git
+git clone https://github.com/hkaab/ProductCatalog.git
 
 Open the solution (in ProductCatalog folder) in visual studio and build the solution
 
@@ -33,5 +33,5 @@ Go to the cloned Product project directoy
 **Continuous integration using GitHub Actions**
 ===============================================
 
-Please goto https://github.com/hkaabasl/ProductCatalog/actions
+Please goto https://github.com/hkaab/ProductCatalog/actions
 
