@@ -11,7 +11,7 @@ Download and Install visuall studio 2022  from https://visualstudio.microsoft.co
 
 **Clone this repository**
 
-git clone https://github.com/hkaab/ProductCatalog.git
+git clone https://github.com/hkaab/product.catalog.git
 
 Open the solution (in ProductCatalog folder) in visual studio and build the solution
 
