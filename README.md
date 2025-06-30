@@ -33,5 +33,5 @@ Go to the cloned Product project directoy
 **Continuous integration using GitHub Actions**
 ===============================================
 
-Please goto https://github.com/hkaab/product.catalog/actions
+Please goto https://github.com/hkaab/product.catalog/actions 
 
