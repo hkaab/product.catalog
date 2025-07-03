@@ -28,4 +28,4 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Test
-      run: dotnet test ProductCatalog.UnitTests.csproj --no-build --no-restore
+      run: dotnet test ProductCatalog.UnitTests/ProductCatalog.UnitTests.csproj --no-build --no-restore
